@@ -42,7 +42,7 @@ void deserializeTweetIntoVector(const std::string &tweet_str,
   int retweet_count = std::stoi(retweet_count_str);
   int favorite_count = std::stoi(favorite_count_str);
 
-  tweets.emplace_back(tweet_id, retweet_count, favorite_count);
+  /*tweets.emplace_back(tweet_id, retweet_count, favorite_count);*/
 }
 
 std::string serializeTweeet(const Tweet &tweet) {
@@ -65,7 +65,8 @@ std::vector<Tweet> readTweetsFromFile(const std::string &filename) {
   std::getline(tweets_file, line);
 
   while (std::getline(tweets_file, line)) {
-    deserializeTweetIntoVector(line, tweets);
+    /*deserializeTweetIntoVector(line, tweets);*/
+    tweets.push_back(deserializeTweet(line));
   }
 
   return tweets;
